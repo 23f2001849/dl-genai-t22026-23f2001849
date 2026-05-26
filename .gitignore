@@ -28,3 +28,7 @@ runs/
 .DS_Store
 .idea/
 .vscode/
+
+# Saved model artifacts
+models/*
+!models/.gitkeep
