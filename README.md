@@ -21,14 +21,14 @@ Evaluation metric: TBD from competition page.
 
 ## Repo Structure
 
-\`\`\`
+```
 dl-genai-t22026-23f2001849/
 ├── notebooks/      # milestone notebooks + final Kaggle inference
 ├── src/            # modular code: dataset, training, inference, models
 ├── deployment/     # Streamlit/Gradio app for HF Spaces
 ├── reports/        # final report and figures
 └── data/           # gitignored
-\`\`\`
+```
 
 ---
 
