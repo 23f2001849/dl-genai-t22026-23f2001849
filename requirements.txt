@@ -8,3 +8,4 @@ wandb
 matplotlib
 seaborn
 jupyter
+pytest>=8.0
