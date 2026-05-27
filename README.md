@@ -55,7 +55,7 @@ dl-genai-t22026-23f2001849/
 ## Setup
 
 ```bash
-git clone https://github.com/<your-username>/dl-genai-t22026-23f2001849.git
+git clone https://github.com/23f2001849/dl-genai-t22026-23f2001849.git
 cd dl-genai-t22026-23f2001849
 pip install -r requirements.txt
 ```
