@@ -21,14 +21,14 @@ Evaluation metric: TBD from competition page.
 
 ## Repo Structure
 
-\`\`\`
+```
 dl-genai-t22026-23f2001849/
 ├── notebooks/      # milestone notebooks + final Kaggle inference
 ├── src/            # modular code: dataset, training, inference, models
 ├── deployment/     # Streamlit/Gradio app for HF Spaces
 ├── reports/        # final report and figures
 └── data/           # gitignored
-\`\`\`
+```
 
 ---
 
@@ -54,11 +54,11 @@ dl-genai-t22026-23f2001849/
 
 ## Setup
 
-\`\`\`bash
-git clone https://github.com/<your-username>/dl-genai-t22026-23f2001849.git
+```bash
+git clone https://github.com/23f2001849/dl-genai-t22026-23f2001849.git
 cd dl-genai-t22026-23f2001849
 pip install -r requirements.txt
-\`\`\`
+```
 
 ---
 
