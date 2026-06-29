@@ -16,6 +16,16 @@ data/*.csv
 *.ckpt
 *.bin
 *.safetensors
+*.npy
+*.npz
+
+# Allow staged sample CSVs for the report pipeline showcase
+!data/samples/
+!data/samples/*.csv
+
+# Local outputs (mirrors src/config.OUT_DIR fallback)
+outputs/
+artifacts/
 
 # W&B / logs
 wandb/
