@@ -1,4 +1,4 @@
-# Dataset Findings — Revised (post-M1 LB result)
+# Dataset Findings â€” Revised (post-M1 LB result)
 
 This document supersedes the preliminary findings (`dataset_findings_preliminary.md`, in the project context) where the two disagree. The structural facts are reproduced; the strategic claim about the lookup ceiling has been corrected based on direct Kaggle LB evidence from the M1 submission.
 
@@ -17,7 +17,7 @@ All of the above reproduced on Kaggle (see diagnostic cells in `notebooks/kaggle
 
 ## Corrected claim: lookup ceiling is ~0.76, not 0.90+
 
-The preliminary document stated: *"A naive (stem → answer) lookup with simple wrapper stripping should score in the 0.90+ MAP@3 range on both public and private LB. The competitive ceiling is closer to 0.97–0.99..."*
+The preliminary document stated: *"A naive (stem â†’ answer) lookup with simple wrapper stripping should score in the 0.90+ MAP@3 range on both public and private LB. The competitive ceiling is closer to 0.97â€“0.99..."*
 
 Kaggle public LB as of the M1 submission shows:
 - Ranks 1, 2, 3 tied at 0.76475 (deterministic submissions, separate users).
@@ -31,15 +31,15 @@ Three independent submitters tied at exactly 0.76475 indicates this is the maxim
 The competition's test answer keys were generated independently of train. Even when a test row's stem and option text are byte-identical to a train row, the labeled correct answer sometimes disagrees with train.
 
 Rough decomposition from the 0.76 ceiling:
-- ~75–77% of test rows have a correct answer that matches the train label for the same (stem, options).
-- ~23–25% of test rows have a correct answer that disagrees with the train label, regardless of how cleanly the lookup hits.
+- ~75â€“77% of test rows have a correct answer that matches the train label for the same (stem, options).
+- ~23â€“25% of test rows have a correct answer that disagrees with the train label, regardless of how cleanly the lookup hits.
 
 Consistent with the answer keys being produced by a separate annotation pass (e.g., a different LLM rerun) over the same question pool. The questions and options are shared between train and test; the labeling decision is not.
 
 ## Strategic consequences
 
 Original two-workstream framing assumed:
-- Workstream A (lookup): ceiling 0.97–0.99. Trivially wins the LB.
+- Workstream A (lookup): ceiling 0.97â€“0.99. Trivially wins the LB.
 - Workstream B (trained models): mandatory for the course grade. Not competitive on LB.
 
 Revised framing:
@@ -51,7 +51,7 @@ The paraphrase matcher originally scheduled as M2 addresses 45 rows where PH-A i
 ## Updated milestone priorities
 
 - M1: done. Workstream A v1 submitted at 0.74147.
-- M2 (pivoted): first Workstream B model — fine-tuned DeBERTa-v3-base with per-option encoding head and shared backbone, stem-grouped GroupKFold validation, W&B logged. Originally scheduled for M3; promoted because of the corrected ceiling.
+- M2 (pivoted): first Workstream B model â€” fine-tuned DeBERTa-v3-base with per-option encoding head and shared backbone, stem-grouped GroupKFold validation, W&B logged. Originally scheduled for M3; promoted because of the corrected ceiling.
 - M3+: remaining Workstream B models (custom DL, RNN) per Report Guidelines.
 - Lookup polish (paraphrase fuzzy matcher, TTA, per-row filler): opportunistic. Ensemble into the inference notebook only if it lifts above the best Workstream B model.
 
@@ -61,7 +61,7 @@ The paraphrase matcher originally scheduled as M2 addresses 45 rows where PH-A i
 - LB scores: visible in the Kaggle submission history for `krishnaanalyst` and on the public leaderboard for the competition.
 
 
-## Update — tier breakdown and where the cap comes from
+## Update â€” tier breakdown and where the cap comes from
 
 Counts on the 500-row test after the lookup is constructed from train:
 
@@ -73,6 +73,6 @@ Counts on the 500-row test after the lookup is constructed from train:
 
 T3 leave-one-out accuracy on train is 97%. T2 and T3 together are too few rows to move LB on their own.
 
-The "answer keys generated independently" framing in the section above has a more concrete source. Train itself has 44 `core_q`'s where the duplicate rows carry multiple distinct correct-answer texts — same question, paraphrased "correct" choices across the duplicates. The same paraphrase pass was almost certainly applied to a subset of test rows. Extrapolating the 44 / 252 train rate to the 455 T1 test rows puts the flipped count somewhere around 140, give or take. These rows can't be recovered by a train-trained model: the model's target is the train label, the scorer's label is a paraphrase of it, and nothing in train tells you which row got flipped.
+The "answer keys generated independently" framing in the section above has a more concrete source. Train itself has 44 `core_q`'s where the duplicate rows carry multiple distinct correct-answer texts â€” same question, paraphrased "correct" choices across the duplicates. The same paraphrase pass was almost certainly applied to a subset of test rows. Extrapolating the 44 / 252 train rate to the 455 T1 test rows puts the flipped count somewhere around 140, give or take. These rows can't be recovered by a train-trained model: the model's target is the train label, the scorer's label is a paraphrase of it, and nothing in train tells you which row got flipped.
 
-Practical consequence for the trained-model workstream: it can only help on rank-2 / rank-3 placement for those ~140 rows. If rank-2/3 were perfect on every flipped row the ceiling would be around 0.78. Public LB top is 0.76475, so the realistic headroom is about 0.015–0.02 above the lookup baseline.
+Practical consequence for the trained-model workstream: it can only help on rank-2 / rank-3 placement for those ~140 rows. If rank-2/3 were perfect on every flipped row the ceiling would be around 0.78. 
