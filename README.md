@@ -13,9 +13,9 @@ Part of the **May 2026 Deep Learning & Generative AI Project** at IIT Madras.
 
 ## Task
 
-(Filled after EDA — Milestone 1.)
+Multiple-choice question answering. 5 options per question (A–E), one correct.
 
-Evaluation metric: TBD from competition page.
+Evaluation metric: MAP@3. Train: 2000 rows. Test: 500 rows.
 
 ---
 
@@ -44,11 +44,9 @@ dl-genai-t22026-23f2001849/
 
 ## Results
 
-(Updated after each milestone.)
-
-| Experiment | Model | Val Score | LB Score |
-|-----------|-------|-----------|----------|
-| — | — | — | — |
+| Approach | LB (MAP@3) |
+|----------|------------|
+| 5-model ensemble + 4-tier lookup + rank-2 paraphrase rule | 0.76517 |
 
 ---
 
@@ -65,7 +63,7 @@ pip install -r requirements.txt
 ## Tools
 
 - **Frameworks:** PyTorch, HuggingFace Transformers
-- **Tracking:** [Weights & Biases](https://wandb.ai/<your-wandb-username>/23f2001849-t22026)
+- **Tracking:** [Weights & Biases](https://wandb.ai/23f2001849/23f2001849-t22026)
 - **Deployment:** Streamlit on HuggingFace Spaces (planned)
 - **Training:** Kaggle (T4/P100), Colab
 
@@ -73,10 +71,10 @@ pip install -r requirements.txt
 
 ## Milestones
 
-- [ ] M0 — Setup (Jun 10)
-- [ ] M1 — EDA & baseline (Jun 17)
-- [ ] M2 — Classical ML baseline (Jun 24)
-- [ ] M3 — Neural network from scratch (Jul 1)
-- [ ] M4 — Sequential model (Jul 8)
-- [ ] M5 — Pretrained fine-tune (Jul 15)
-- [ ] Final submission (Jul 19)
+- [x] M0 — Setup
+- [x] M1 — EDA & baseline
+- [ ] M2 — Classical ML baseline
+- [ ] M3 — Neural network from scratch
+- [ ] M4 — Sequential model
+- [ ] M5 — Pretrained fine-tune
+- [ ] Final submission
