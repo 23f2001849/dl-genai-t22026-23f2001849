@@ -15,6 +15,8 @@ _SUFFIXES = [
     "based on the given context.",
     "from the following choices.",
     "carefully.",
+    "from the choices given.",
+    "from the options provided.",
 ]
 
 _PREFIX_RE = re.compile(r"^\s*(?:" + "|".join(re.escape(p) for p in _PREFIXES) + r")\s*")

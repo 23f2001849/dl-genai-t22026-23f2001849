@@ -26,6 +26,8 @@ def test_strips_each_suffix():
         "What is 2 + 2? based on the given context.",
         "What is 2 + 2? from the following choices.",
         "What is 2 + 2? carefully.",
+        "What is 2 + 2? from the choices given.",
+        "What is 2 + 2? from the options provided.",
     ]
     for c in cases:
         assert normalize_stem(c) == "What is 2 + 2?", c
