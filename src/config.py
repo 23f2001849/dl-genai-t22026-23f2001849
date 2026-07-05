@@ -47,3 +47,17 @@ WANDB_PROJECT = "23f2001849-t22026"
 # ── Submission ───────────────────────────────────────────────────────────────
 SUBMISSION_NAME = "submission.csv"
 TOP_K = 3  # competition metric is MAP@3
+
+# lookup — tier confidence boosts applied in log-probability space
+T2_BOOST = 0.6
+T3_BOOST = 0.9
+T4_BOOST = 0.4
+
+# ensemble grid search
+GRID_STEP = 0.05
+
+# retrieval
+MINILM_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+CROSS_ENCODER_MODEL = "cross-encoder/ms-marco-MiniLM-L-12-v2"
+RAG_TOP_K = 5
+RAG_RERANK_TOP_N = 20
