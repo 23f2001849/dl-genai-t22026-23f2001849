@@ -1,24 +1,32 @@
-# Core scientific stack
+# core scientific stack
 numpy>=1.26.0
 pandas>=2.2.0
 scikit-learn>=1.5.0
 scipy>=1.13.0
 
-# Deep learning
+# classical ML
+lightgbm>=4.3.0
+xgboost>=2.0.0
+
+# deep learning
 torch>=2.4.0
 transformers>=4.45.0
 datasets>=2.20.0
+sentence-transformers>=3.0.0
 
-# Experiment tracking
+# retrieval
+rank-bm25>=0.2.2
+
+# experiment tracking
 wandb>=0.18.0
 
-# Visualization
+# visualization
 matplotlib>=3.9.0
 seaborn>=0.13.2
 
-# Notebooks
+# notebooks
 jupyter>=1.1.0
 ipykernel>=6.29.0
 
-# Testing
+# testing
 pytest>=8.0
