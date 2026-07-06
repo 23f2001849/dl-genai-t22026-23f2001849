@@ -16,7 +16,7 @@ def _corpus():
 
 
 def test_tokenize_lowercases_and_splits():
-    assert _tokenize("Hello World!") == ["hello", "world!"]
+    assert _tokenize("Hello World!") == ["hello", "world"]
 
 
 def test_bm25_finds_relevant_doc():
