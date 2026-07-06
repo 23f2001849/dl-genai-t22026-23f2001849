@@ -1,10 +1,14 @@
 # hybrid retrieval: BM25 sparse + MiniLM dense, with score fusion
+import re
+
 import numpy as np
 from rank_bm25 import BM25Okapi
 
+_TOKEN_RE = re.compile(r"[a-z0-9]+")
+
 
 def _tokenize(text):
-    return text.lower().split()
+    return _TOKEN_RE.findall(text.lower())
 
 
 class HybridIndex:
