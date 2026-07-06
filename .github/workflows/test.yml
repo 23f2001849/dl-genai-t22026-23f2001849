@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pandas
+          pip install pytest pandas rank-bm25 numpy
 
       - name: Run tests
         run: pytest tests/ -v
