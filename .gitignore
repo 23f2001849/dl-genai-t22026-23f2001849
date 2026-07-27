@@ -43,3 +43,12 @@ runs/
 # Saved model artifacts
 models/*
 !models/.gitkeep
+
+# --- runtime / secrets / caches ---
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+wandb/
+notebooks/wandb/
+notebooks/outputs/
