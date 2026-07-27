@@ -41,7 +41,7 @@ runs/
 .vscode/
 
 # Saved model artifacts
-models/*
+# models/*
 !models/.gitkeep
 
 # --- runtime / secrets / caches ---
