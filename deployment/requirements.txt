@@ -12,5 +12,5 @@ joblib>=1.4
 
 # config.json was written by transformers 5.x; loading it under 4.x fails
 torch>=2.4
-transformers>=5.0.0,<6
-huggingface_hub>=0.25
+transformers==4.44.2
+huggingface_hub>=0.25,<1.0
