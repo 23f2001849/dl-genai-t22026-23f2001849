@@ -1,0 +1,41 @@
+# .github/workflows/sync-to-hf-space.yml
+#
+# Pushes the contents of deployment/ to the Hugging Face Space on every commit to main.
+# Add a repository secret named HF_TOKEN holding a Hugging Face token with write access.
+name: Sync deployment to Hugging Face Space
+
+on:
+  push:
+    branches: [main]
+    paths: ['deployment/**']
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stage the Space contents
+        run: |
+          mkdir space
+          cp deployment/app.py            space/app.py
+          cp deployment/featurise.py      space/featurise.py
+          cp deployment/download_models.py space/download_models.py
+          cp deployment/requirements.txt  space/requirements.txt
+          cp deployment/SPACE_README.md   space/README.md
+
+      - name: Push to the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_USER: ${{ vars.HF_USER }}
+          SPACE_NAME: smart-mcq-solver
+        run: |
+          cd space
+          git init -b main
+          git config user.email "actions@github.com"
+          git config user.name  "GitHub Actions"
+          git add -A
+          git commit -m "Sync from ${GITHUB_SHA::7}"
+          git push --force \
+            "https://${HF_USER}:${HF_TOKEN}@huggingface.co/spaces/${HF_USER}/${SPACE_NAME}" main
