@@ -12,9 +12,15 @@ import os, json
 import numpy as np
 import gradio as gr
 import joblib
+import spaces
 from scipy.sparse import hstack, csr_matrix
 
 from featurise import pair_features, OPT
+
+# NEW block
+@spaces.GPU
+def _zero_gpu_stub():
+    return None
 
 # Pull weights from the Hub if they are not already on disk. No-op when artifacts/ exists.
 try:

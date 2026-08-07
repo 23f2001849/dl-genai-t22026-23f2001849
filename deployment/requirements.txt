@@ -3,14 +3,13 @@
 gradio==4.44.1
 streamlit==1.39.0
 
-# must match the version that pickled the model on Kaggle, or joblib load misbehaves
 scikit-learn==1.6.1
 scipy>=1.14
 numpy>=1.26,<3
 pandas>=2.2
 joblib>=1.4
 
-# config.json was written by transformers 5.x; loading it under 4.x fails
 torch>=2.4
-transformers>=5.0.0,<6
+transformers==4.44.2
 huggingface_hub>=0.25,<1.0
+fastapi==0.115.5
